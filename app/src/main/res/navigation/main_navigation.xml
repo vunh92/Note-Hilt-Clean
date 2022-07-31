@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/screenNoteActivity">
+
+    <activity
+        android:id="@+id/screenNoteActivity"
+        android:name="com.vunh.note_hilt_clean.presentation.notes.ScreenNoteActivity"
+        android:label="title_fragment"
+        tools:layout="@layout/activity_screen_note">
+        <action
+            android:id="@+id/action_note_to_add"
+            app:destination="@id/addNoteActivity"
+            app:launchSingleTop="true"/>
+        <action
+            android:id="@+id/action_note_to_update"
+            app:destination="@id/updateNoteActivity"
+            app:launchSingleTop="true"/>
+    </activity>
+
+    <activity
+        android:id="@+id/addNoteActivity"
+        android:name="com.vunh.note_hilt_clean.presentation.add_note.AddNoteActivity"
+        android:label="AddNoteActivity"
+        tools:layout="@layout/activity_add_note">
+        <action
+            android:id="@+id/action_add_note"
+            app:popUpTo="@+id/screenNoteActivity"
+            app:launchSingleTop="true"/>
+    </activity>
+
+    <activity
+        android:id="@+id/updateNoteActivity"
+        android:name="com.vunh.note_hilt_clean.presentation.update_note.UpdateNoteActivity"
+        android:label="UpdateNoteActivity"
+        tools:layout="@layout/activity_update_note">
+        <action
+            android:id="@+id/action_add_note"
+            app:popUpTo="@+id/screenNoteActivity"
+            app:launchSingleTop="true"/>
+        <argument
+            android:name="note_id"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </activity>
+</navigation>
